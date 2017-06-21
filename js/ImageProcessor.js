@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = require("./util");
-var EXTENSION_REGEX = /(\..{3,4})$/;
-var ImageProcessor = (function () {
-    function ImageProcessor() {
+const util_1 = require("./util");
+const EXTENSION_REGEX = /(\..{3,4})$/;
+class ImageProcessor {
+    constructor() {
         this.images = {};
         this.restored = false;
         this.galleryTitles = {};
@@ -11,13 +11,13 @@ var ImageProcessor = (function () {
         this.foldername = "";
         this.filename = "";
     }
-    ImageProcessor.prototype.getInfoFromFile = function (file) {
-        var info = file.relative.split("\\");
-        var p = "";
+    getInfoFromFile(file) {
+        let info = file.relative.split("\\");
+        let p = "";
         if (info.length === 4) {
             p = info[2];
         }
-        var fn = info[info.length - 1];
+        let fn = info[info.length - 1];
         return {
             year: info[0],
             gallery: info[1],
@@ -26,8 +26,8 @@ var ImageProcessor = (function () {
             title: fn.replace(EXTENSION_REGEX, ""),
             extension: EXTENSION_REGEX.exec(fn)[1]
         };
-    };
-    ImageProcessor.prototype.init = function (oldGalleries, state) {
+    }
+    init(oldGalleries, state) {
         if (!oldGalleries || !state) {
             return false;
         }
@@ -36,16 +36,16 @@ var ImageProcessor = (function () {
         this.galleryTitles = state.titles;
         this.galleryCount = state.count;
         return true;
-    };
-    ImageProcessor.prototype.addInformation = function (file) {
-        var info = this.getInfoFromFile(file);
-        var year = this.images[info.year] || (this.images[info.year] = {});
-        var gallery = year[info.gallery];
+    }
+    addInformation(file) {
+        let info = this.getInfoFromFile(file);
+        let year = this.images[info.year] || (this.images[info.year] = {});
+        let gallery = year[info.gallery];
         if (!gallery) {
             gallery = (year[info.gallery] = []);
             this.galleryCount[info.year] = (this.galleryCount[info.year] || 0) + 1;
         }
-        var filecount = Object.keys(gallery || []).length;
+        let filecount = Object.keys(gallery || []).length;
         this.filename = util_1.padLeft(filecount + "", 5, "0") + info.extension.toLowerCase();
         this.foldername = util_1.padLeft(this.galleryCount[info.year] + "", 3, "0");
         this.galleryTitles[info.year + "_" + this.foldername] = info.gallery;
@@ -57,25 +57,24 @@ var ImageProcessor = (function () {
             m: { w: 0, h: 0 },
             s: { w: 0, h: 0 }
         });
-    };
-    ImageProcessor.prototype.addSize = function (file, size) {
-        var info = this.getInfoFromFile(file);
-        var galleryTitle = this.galleryTitles[info.year + "_" + info.gallery];
-        var e = this.images[info.year][galleryTitle].filter(function (o) {
+    }
+    addSize(file, size) {
+        let info = this.getInfoFromFile(file);
+        let galleryTitle = this.galleryTitles[info.year + "_" + info.gallery];
+        let e = this.images[info.year][galleryTitle].filter((o) => {
             return o.f.toUpperCase() === info.filename.toUpperCase();
         })[0][info.prefix || "o"];
         e.w = size.width;
         e.h = size.height;
-    };
-    ImageProcessor.prototype.writeFiles = function (writer, path) {
+    }
+    writeFiles(writer, path) {
         writer(path + (this.restored ? "new_" : "") + "galleries.json", JSON.stringify(this.images));
-        var state = {
+        let state = {
             titles: this.galleryTitles,
             count: this.galleryCount
         };
         writer(path + "state.json", JSON.stringify(state));
-    };
-    return ImageProcessor;
-}());
+    }
+}
 exports.ImageProcessor = ImageProcessor;
 //# sourceMappingURL=ImageProcessor.js.map

@@ -1,5 +1,5 @@
 export const isNullOrUndefined: (o: any) => boolean = (o: any): boolean => {
-  return o == null && o == undefined;
+  return o === null || o === undefined;
 };
 
 export const padLeft = (str: string, length: number, fill: string = " "): string => {

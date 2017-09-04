@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isNullOrUndefined = (o) => {
-    return o == null && o == undefined;
+    return o === null || o === undefined;
 };
 exports.padLeft = (str, length, fill = " ") => {
     if (exports.isNullOrUndefined(str)) {

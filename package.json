@@ -1,6 +1,6 @@
 {
   "name": "mvw-gallery",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Utility to create multiple image sizes and an object holding the meta information to be used e.g. with photoswipe.",
   "keywords": [
     "gallery",
@@ -16,16 +16,16 @@
   },
   "devDependencies": {
     "@types/gulp": "4.0.4",
-    "@types/gulp-load-plugins": "0.0.29",
-    "@types/image-size": "0.0.28",
-    "@types/jasmine": "2.5.53",
+    "@types/gulp-load-plugins": "0.0.30",
+    "@types/image-size": "0.0.29",
+    "@types/jasmine": "2.5.54",
     "@types/through2": "2.0.33",
-    "@types/vinyl": "2.0.0",
-    "@types/commander": "2.9.1",
+    "@types/vinyl": "2.0.1",
+    "@types/commander": "2.9.2",
 
-    "jasmine": "2.7.0",
-    "typescript": "2.4.2",
-    "tslint": "5.6.0"
+    "jasmine": "2.8.0",
+    "typescript": "2.5.2",
+    "tslint": "5.7.0"
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",

@@ -7,14 +7,14 @@ export const padLeft = (str: string, length: number, fill: string = " "): string
     str = "";
   }
 
-  if (fill.length != 1) {
+  if (fill.length !== 1) {
     throw {
-      name: "InvalidArgument",
-      message: "fill length must be 1"
+      message: "fill length must be 1",
+      name: "InvalidArgument"
     };
   }
 
-  let indent: number = length - str.length;
-  let pad: string = new Array(indent < 0 ? 0 : indent + 1).join(fill);
+  const indent: number = length - str.length;
+  const pad: string = new Array(indent < 0 ? 0 : indent + 1).join(fill);
   return pad + str;
-}
+};

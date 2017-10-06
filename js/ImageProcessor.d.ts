@@ -1,17 +1,17 @@
 /// <reference types="vinyl" />
 import * as File from "vinyl";
-export declare type Titles = {
-    [year_folder: string]: string;
-};
-export declare type Count = {
+export interface ITitles {
+    [yearFolder: string]: string;
+}
+export interface ICount {
     [year: string]: number;
-};
-export declare type GalleryList = {
+}
+export interface IGalleryList {
     [gallery: string]: IImage[];
-};
-export declare type GalleriesPerYear = {
-    [year: string]: GalleryList;
-};
+}
+export interface IGalleriesPerYear {
+    [year: string]: IGalleryList;
+}
 export interface IImageSize {
     w: number;
     h: number;
@@ -29,19 +29,19 @@ export interface ISize {
     height: number;
 }
 export interface IState {
-    titles: Titles;
-    count: Count;
+    titles: ITitles;
+    count: ICount;
 }
 export declare class ImageProcessor {
+    foldername: string;
+    filename: string;
     private images;
     private restored;
     private galleryTitles;
     private galleryCount;
-    foldername: string;
-    filename: string;
-    private getInfoFromFile(file);
-    init(oldGalleries: GalleriesPerYear, state: IState): boolean;
     addInformation(file: File): void;
     addSize(file: File, size: ISize): void;
+    init(oldGalleries: IGalleriesPerYear, state: IState): boolean;
     writeFiles(writer: (location: string, content: string) => any, path: string): void;
+    private getInfoFromFile(file);
 }

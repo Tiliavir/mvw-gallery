@@ -1,4 +1,3 @@
-/// <reference types="vinyl" />
 import * as File from "vinyl";
 export interface ITitles {
     [yearFolder: string]: string;
@@ -43,5 +42,5 @@ export declare class ImageProcessor {
     addSize(file: File, size: ISize): void;
     init(oldGalleries: IGalleriesPerYear, state: IState): boolean;
     writeFiles(writer: (location: string, content: string) => any, path: string): void;
-    private getInfoFromFile(file);
+    private getInfoFromFile;
 }

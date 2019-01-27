@@ -11,7 +11,7 @@ exports.padLeft = function (str, length, fill) {
     if (fill.length !== 1) {
         throw {
             message: "fill length must be 1",
-            name: "InvalidArgument"
+            name: "InvalidArgument",
         };
     }
     var indent = length - str.length;

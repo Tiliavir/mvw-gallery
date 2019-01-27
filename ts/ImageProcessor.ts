@@ -72,7 +72,7 @@ export class ImageProcessor {
       m: { w: 0, h: 0 },
       o: { w: 0, h: 0 },
       s: { w: 0, h: 0 },
-      t: info.title
+      t: info.title,
     });
   }
 
@@ -103,7 +103,7 @@ export class ImageProcessor {
     writer(path + (this.restored ? "new_" : "") + "galleries.json", JSON.stringify(this.images));
     const state: IState = {
       count: this.galleryCount,
-      titles: this.galleryTitles
+      titles: this.galleryTitles,
     };
     writer(path + "state.json", JSON.stringify(state));
   }
@@ -123,7 +123,7 @@ export class ImageProcessor {
       gallery: info[1],
       prefix: p,
       title: fn.replace(EXTENSION_REGEX, ""),
-      year: info[0]
+      year: info[0],
     };
   }
 }

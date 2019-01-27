@@ -10,7 +10,7 @@ export const padLeft = (str: string, length: number, fill: string = " "): string
   if (fill.length !== 1) {
     throw {
       message: "fill length must be 1",
-      name: "InvalidArgument"
+      name: "InvalidArgument",
     };
   }
 

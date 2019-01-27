@@ -29,7 +29,7 @@ var processImage = function (w, h, p, output) {
         noProfile: true,
         quality: 0.7,
         upscale: false,
-        width: w
+        width: w,
     }), os.cpus().length)
         .pipe(gulp.dest, output)
         .pipe(through.obj, function (file, enc, cb) {

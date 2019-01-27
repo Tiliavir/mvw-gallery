@@ -36,7 +36,7 @@ const processImage = (w: number, h: number, p: string, output: string) => {
         noProfile: true,
         quality: 0.7,
         upscale: false,
-        width: w
+        width: w,
       }),
       os.cpus().length)
     .pipe(gulp.dest, output)

@@ -1,6 +1,6 @@
 {
   "name": "mvw-gallery",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Utility to create multiple image sizes and an object holding the meta information to be used e.g. with photoswipe.",
   "keywords": [
     "gallery",
@@ -15,29 +15,29 @@
     "email": "tiliavir@gmail.com"
   },
   "devDependencies": {
-    "@types/gulp": "4.0.5",
+    "@types/gulp": "4.0.6",
     "@types/gulp-load-plugins": "0.0.31",
     "@types/image-size": "0.7.0",
-    "@types/jasmine": "3.3.8",
+    "@types/jasmine": "3.3.12",
     "@types/lazypipe": "0.0.31",
     "@types/through2": "2.0.34",
-    "@types/vinyl": "2.0.2",
+    "@types/vinyl": "2.0.3",
     "@types/commander": "2.12.2",
-    "jasmine": "3.3.1",
-    "typescript": "3.2.4",
-    "tslint": "5.12.1"
+    "jasmine": "3.4.0",
+    "typescript": "3.4.5",
+    "tslint": "5.16.0"
   },
   "dependencies": {
-    "gulp": "4.0.0",
+    "gulp": "4.0.1",
     "gulp-image-resize": "0.13.0",
     "gulp-load-plugins": "1.5.0",
     "gulp-rename": "1.4.0",
     "gulplog": "1.0.0",
     "concurrent-transform": "1.0.0",
-    "image-size": "0.7.1",
+    "image-size": "0.7.4",
     "lazypipe": "1.0.2",
-    "through2": "3.0.0",
-    "commander": "2.19.0"
+    "through2": "3.0.1",
+    "commander": "2.20.0"
   },
   "scripts": {
     "convert": "node ./js/gulpfile.js ./input/ ./output/",

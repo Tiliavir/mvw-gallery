@@ -34,7 +34,7 @@
     "gulp-rename": "1.4.0",
     "gulplog": "1.0.0",
     "concurrent-transform": "1.0.0",
-    "image-size": "0.7.4",
+    "image-size": "0.8.3",
     "lazypipe": "1.0.2",
     "through2": "3.0.1",
     "commander": "2.20.0"

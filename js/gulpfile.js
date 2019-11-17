@@ -4,12 +4,12 @@ var program = require("commander");
 var fs = require("fs");
 var gulp = require("gulp");
 var gulpLoadPlugins = require("gulp-load-plugins");
-var sizeOf = require("image-size");
+var image_size_1 = require("image-size");
+var lazypipe = require("lazypipe");
 var os = require("os");
 var path = require("path");
 var through = require("through2");
 var ImageProcessor_1 = require("./ImageProcessor");
-var lazypipe = require("lazypipe");
 var parallel = require("concurrent-transform");
 var logger = require("gulplog");
 var $ = gulpLoadPlugins();
@@ -33,7 +33,7 @@ var processImage = function (w, h, p, output) {
     }), os.cpus().length)
         .pipe(gulp.dest, output)
         .pipe(through.obj, function (file, enc, cb) {
-        img.addSize(file, sizeOf(file.path));
+        img.addSize(file, image_size_1.imageSize(file.path));
         cb(null, file);
     });
 };

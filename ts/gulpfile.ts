@@ -1,16 +1,14 @@
 import * as program from "commander";
 import * as fs from "fs";
 import * as gulp from "gulp";
-import { TaskFunction } from "gulp";
 import * as gulpLoadPlugins from "gulp-load-plugins";
-import * as sizeOf from "image-size";
+import {imageSize} from "image-size";
+import lazypipe = require("lazypipe"); // refactor when version > 0.0.30
 import * as os from "os";
 import * as path from "path";
 import * as through from "through2";
 import * as File from "vinyl";
-import { ImageProcessor } from "./ImageProcessor";
-
-import lazypipe = require("lazypipe"); // refactor when version > 0.0.30
+import {ImageProcessor} from "./ImageProcessor";
 
 // tslint:disable-next-line:no-var-requires
 const parallel = require("concurrent-transform");
@@ -41,7 +39,7 @@ const processImage = (w: number, h: number, p: string, output: string) => {
       os.cpus().length)
     .pipe(gulp.dest, output)
     .pipe(through.obj, (file: File, enc: string, cb: (err: any, data: any) => void): void => {
-      img.addSize(file, sizeOf(file.path));
+      img.addSize(file, imageSize(file.path));
       cb(null, file);
     });
 };

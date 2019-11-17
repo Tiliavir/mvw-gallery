@@ -1,6 +1,6 @@
 {
   "name": "mvw-gallery",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Utility to create multiple image sizes and an object holding the meta information to be used e.g. with photoswipe.",
   "keywords": [
     "gallery",

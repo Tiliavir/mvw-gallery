@@ -37,7 +37,7 @@
     "image-size": "0.8.3",
     "lazypipe": "1.0.2",
     "through2": "3.0.1",
-    "commander": "4.1.0"
+    "commander": "4.1.1"
   },
   "scripts": {
     "convert": "node ./js/gulpfile.js ./input/ ./output/",

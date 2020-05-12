@@ -1,3 +1,5 @@
+# !! This project is no longer maintained !!
+
 # MVW-Gallery
 
 [![Build State](https://github.com/Tiliavir/mvw-gallery/workflows/Node%20CI/badge.svg)](https://github.com/Tiliavir/mvw-gallery/actions)
